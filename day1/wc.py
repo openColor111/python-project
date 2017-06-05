@@ -6,7 +6,8 @@ def wc(fi):
     # 统计读取几次
     k = 0
     while True:
-        str1= f.read(1024)
+    # 一次访问的吞吐量决定了速度
+        str1= f.read(1048576)
         k +=1
         # 判断是否读到数据
         if str1 == "":
@@ -16,7 +17,7 @@ def wc(fi):
             x = -1
             while str1[x] != ' ':
         #判断如果这是最后一段读取，那么就不需要寻找空格
-                if len(str1) != 1024:
+                if len(str1) != 1048576:
                     break
                 else:
                     x -= 1
@@ -25,4 +26,7 @@ def wc(fi):
         #通过数组统计个数
             count += len(str1.split())
     return (count,k)
+if __name__ == '__main__':
+    wc('/var/log/messages-20170517')
+
 
