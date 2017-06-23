@@ -17,10 +17,11 @@ def trace(f):
         return result
     return _f
 
-@trace
-def p():
-    print("xxx")
-    print("yyy")
-    print("zzz")
+if __name__ == "__main__":
+    @trace
+    def p():
+        print("xxx")
+        print("yyy")
+        print("zzz")
 
-p()
+    p()

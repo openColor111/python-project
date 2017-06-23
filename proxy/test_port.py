@@ -7,9 +7,9 @@ def testconn(host,port):
         t1 = time.time()
         sk.connect((host,port))
         t1 = time.time()-t1
-        return t1
+        return host,port,t1
     except Exception:
         return False
 
 if __name__ == '__main__':
-    print(testconn('111.206.186.244',80))
+    print(testconn('150.176.182.31',80))
