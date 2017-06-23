@@ -10,12 +10,12 @@ class Th(threading.Thread):
         #获得锁然后运行
         #重写run()函数，线程默认从此函数开始执行
 
+        threadLock.acquire()
         print(self.getName())
         for i in range(5):
-            threadLock.acquire()
             print(self.getName()+" "+str(i))
-            threadLock.release()
         print(self.getName() + " is over")
+        threadLock.release()
         #释放锁
 
 
